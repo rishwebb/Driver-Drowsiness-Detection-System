@@ -1,82 +1,100 @@
-##AI Drowsiness Guard
+# AI Drowsiness Guard
 
-This project is a real time AI and Machine Learning based driver drowsiness detection system.
+This project is a real-time AI and Machine Learning based driver drowsiness detection system designed to monitor eye movements and yawning behavior through a webcam and provide instant audio alerts.
 
-Technology Used
+---
 
-Python programming language
+## Technology Used
 
-OpenCV for computer vision
+* Python programming language
+* OpenCV for computer vision processing
+* Dlib machine learning model for facial landmark detection
+* Eye Aspect Ratio algorithm for blink detection
+* NumPy and SciPy for numerical calculations
 
-Dlib machine learning model
+---
 
-Facial landmark detection
+## Main Features
 
-Eye Aspect Ratio algorithm
+* Real-time face detection using webcam
+* Continuous eye blink monitoring
+* Drowsiness alert system with audio alarms
+* Yawn detection for fatigue monitoring
+* Live webcam feed processing
+* Cross-platform support for Windows and Linux
 
+---
 
-Main Features
+## Hardware Requirements
 
-Real time face detection
+* Laptop or PC with a functional webcam
+* Minimum 4GB RAM
+* Processor capable of real-time video processing
 
-Eye blink monitoring
+---
 
-Drowsiness alert system
+## Software Requirements
 
-Yawn detection
+* Python 3.x
+* OpenCV
+* Dlib
+* NumPy
+* SciPy
+* Imutils
+* Pygame
 
-Audio warning alarms
+---
 
-Live webcam monitoring
+## Installation Guide
 
-
-Hardware Requirements
-
-Laptop or PC with webcam
-
-Minimum 4GB RAM
-
-Python 3 installed
-
-
-Software Requirements
-
-Python 3.x
-
-OpenCV
-
-Dlib
-
-Numpy
-
-Imutils
-
-Pygame
-
-
-How to Install
-
-Open terminal and run:
+1. Clone or download the project folder.
+2. Open a terminal inside the project directory.
+3. Install the required dependencies using the following command:
 
 pip install -r requirements.txt
 
-How to Run
+---
 
-python main.py
+## How to Run
 
-Project Algorithm
+After installation, execute the program with:
 
-The system captures live video from webcam
+python main_final.py
 
-Facial landmarks are detected using Dlib model
+Press the Q key to exit the application.
 
-Eye Aspect Ratio is calculated
+---
 
-If eyes remain closed for many frames, alarm is triggered
+## Project Algorithm
 
-Mouth distance is measured for yawn detection
+* The system captures live video frames from the webcam.
+* Facial landmarks are detected using the Dlib model.
+* Eye Aspect Ratio (EAR) is calculated to detect eye closure.
+* If eyes remain closed for multiple consecutive frames, a drowsiness alert is triggered.
+* Mouth distance is measured to detect yawning behavior.
+* Alerts are generated using audio notifications.
+* Continuous monitoring ensures driver attentiveness and safety.
 
-Continuous monitoring ensures driver safety
+---
 
+## Notes for Windows Users
 
-This project demonstrates real time AI based monitoring using machine learning techniques.
+* Ensure Python is added to PATH during installation.
+* Install dependencies using pip install -r requirements.txt
+* If webcam does not open, try changing camera index in the code.
+
+---
+
+## Disclaimer
+
+This project is intended for educational and demonstration purposes only. It should not be solely relied upon for real-world driver safety without further testing and improvements.
+
+---
+
+## Author
+
+Developed as a practical AI-based monitoring project using Python and Computer Vision techniques.
+
+---
+
+This README provides complete guidance to install, run, and understand the AI Drowsiness Guard project.
