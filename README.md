@@ -1,4 +1,4 @@
-# 👁️ VigilEye: Real-Time AI Driver Drowsiness & Fatigue Detection System
+# 👁️ Driver Drowsiness & Fatigue Detection System
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green.svg)](https://opencv.org/)
@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/rishwebb)
 
-**VigilEye** is a real-time computer vision driver safety monitoring system designed to prevent road accidents caused by fatigue, drowsiness, and distraction. By analyzing facial landmark geometry at 60+ FPS, VigilEye computes the Eye Aspect Ratio (EAR) and mouth yawn frequency, triggering instant audio-visual alerts before accidents happen.
+**Driver Drowsiness Detection System** is a real-time computer vision driver safety monitoring system designed to prevent road accidents caused by fatigue, drowsiness, and distraction. By analyzing facial landmark geometry at 60+ FPS, VigilEye computes the Eye Aspect Ratio (EAR) and mouth yawn frequency, triggering instant audio-visual alerts before accidents happen.
 
 ---
 
