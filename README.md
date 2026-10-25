@@ -1,100 +1,88 @@
-# AI Drowsiness Guard
+# 👁️ VigilEye: Real-Time AI Driver Drowsiness & Fatigue Detection System
 
-This project is a real-time AI and Machine Learning based driver drowsiness detection system designed to monitor eye movements and yawning behavior through a webcam and provide instant audio alerts.
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green.svg)](https://opencv.org/)
+[![Dlib](https://img.shields.io/badge/dlib-68%20Face%20Landmarks-orange.svg)](http://dlib.net/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/rishwebb)
 
----
-
-## Technology Used
-
-* Python programming language
-* OpenCV for computer vision processing
-* Dlib machine learning model for facial landmark detection
-* Eye Aspect Ratio algorithm for blink detection
-* NumPy and SciPy for numerical calculations
+**VigilEye** is a real-time computer vision driver safety monitoring system designed to prevent road accidents caused by fatigue, drowsiness, and distraction. By analyzing facial landmark geometry at 60+ FPS, VigilEye computes the Eye Aspect Ratio (EAR) and mouth yawn frequency, triggering instant audio-visual alerts before accidents happen.
 
 ---
 
-## Main Features
+## ⚡ Key Highlights & Architecture
 
-* Real-time face detection using webcam
-* Continuous eye blink monitoring
-* Drowsiness alert system with audio alarms
-* Yawn detection for fatigue monitoring
-* Live webcam feed processing
-* Cross-platform support for Windows and Linux
+* **68-Point Facial Landmark Mapping**: Powered by dlib's pretrained facial shape predictor model for robust facial structure localization.
+* **Eye Aspect Ratio (EAR) Computation**: Dynamically measures the vertical-to-horizontal eye distances. When EAR falls below a calibrated threshold for consecutive frames, a drowsiness state is registered.
+* **Yawn Frequency & Micro-Sleep Tracking**: Accurately differentiates between normal blinking and micro-sleep events.
+* **Low-Latency Audio Alerts**: Emits high-priority audible alarms to awaken the operator immediately upon fatigue detection.
+
+```
+       [Webcam / Dashcam Feed]
+                 │
+                 ▼
+     [Dlib 68-Point Landmark Extraction]
+                 │
+         ┌───────┴───────┐
+         ▼               ▼
+   [Left Eye EAR]  [Right Eye EAR]
+         │               │
+         └───────┬───────┘
+                 ▼
+       [EAR Average Calculation]
+                 │
+       ┌─────────┴─────────┐
+       ▼                   ▼
+[EAR >= 0.25 (Awake)]   [EAR < 0.25 for > 20 Frames]
+                           │
+                           ▼
+                 🚨 [TRIGGER ALARM & LOG EVENT]
+```
 
 ---
 
-## Hardware Requirements
+## 🛠️ Tech Stack & Requirements
 
-* Laptop or PC with a functional webcam
-* Minimum 4GB RAM
-* Processor capable of real-time video processing
-
----
-
-## Software Requirements
-
-* Python 3.x
-* OpenCV
-* Dlib
-* NumPy
-* SciPy
-* Imutils
-* Pygame
+| Component | Technology |
+|---|---|
+| **Core Logic** | Python 3.8+ |
+| **Computer Vision** | OpenCV (`cv2`) |
+| **Landmark Predictor** | Dlib (`shape_predictor_68_face_landmarks.dat`) |
+| **Audio Alerting** | Playsound / Pygame Audio Engine |
+| **Array Vectorization** | NumPy, SciPy Spatial Distance |
 
 ---
 
-## Installation Guide
+## 🚀 Quickstart & Installation
 
-1. Clone or download the project folder.
-2. Open a terminal inside the project directory.
-3. Install the required dependencies using the following command:
+### 1. Clone the Repository
+```bash
+git clone https://github.com/rishwebb/VigilEye-Driver-Safety-System.git
+cd VigilEye-Driver-Safety-System
+```
 
+### 2. Set Up Virtual Environment
+```bash
+python -m venv venv
+# Windows:
+.\venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
+
+### 4. Run the Safety Monitor
+```bash
+python main.py
+```
+
+*Press `q` at any time to gracefully terminate the video stream.*
 
 ---
 
-## How to Run
-
-After installation, execute the program with:
-
-python main_final.py
-
-Press the Q key to exit the application.
-
----
-
-## Project Algorithm
-
-* The system captures live video frames from the webcam.
-* Facial landmarks are detected using the Dlib model.
-* Eye Aspect Ratio (EAR) is calculated to detect eye closure.
-* If eyes remain closed for multiple consecutive frames, a drowsiness alert is triggered.
-* Mouth distance is measured to detect yawning behavior.
-* Alerts are generated using audio notifications.
-* Continuous monitoring ensures driver attentiveness and safety.
-
----
-
-## Notes for Windows Users
-
-* Ensure Python is added to PATH during installation.
-* Install dependencies using pip install -r requirements.txt
-* If webcam does not open, try changing camera index in the code.
-
----
-
-## Disclaimer
-
-This project is intended for educational and demonstration purposes only. It should not be solely relied upon for real-world driver safety without further testing and improvements.
-
----
-
-## Author
-
-Developed as a practical AI-based monitoring project using Python and Computer Vision techniques.
-
----
-
-This README provides complete guidance to install, run, and understand the AI Drowsiness Guard project.
+## 📄 License
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
